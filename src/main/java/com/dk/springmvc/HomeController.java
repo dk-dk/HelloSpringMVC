@@ -4,6 +4,8 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.xml.ws.RequestWrapper;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -33,7 +35,20 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
+		// view to show
 		return "home";
+	}
+	
+	/**
+	 * Test 
+	 */
+	@RequestMapping(value = "/test", method = RequestMethod.GET)
+	public String test(Model model) {
+		String greetings = "Greetings, Spring MVC!";
+		model.addAttribute("message", greetings);
+		
+		// view to show
+		return "test";
 	}
 	
 }
